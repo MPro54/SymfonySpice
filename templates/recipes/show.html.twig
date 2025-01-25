@@ -1,17 +1,11 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}Recipe:
-	{{ "the recipe :" ~ slug }}
-{% endblock %}
-
+{% block title %}Recipe: {{ "the recipe :" ~ recipe.title }}{% endblock %}
 {% block body %}
-	<h1>ID:
-		{{ id }}</h1>
-	<h1>Test:
-		{{ slug | upper}}</h1>
-
-	<br>
-	<a href="{{ path('recipes.index', { 'id': id, 'slug': slug }) }}" class="btn btn-primary">
-		Show Recipe List
-	</a>
+    <h1>{{ recipe.title }}</h1>
+    <br><br>
+    <p>{{ recipe.content | nl2br }}</p> {# Converts line breaks (LF) to HTML <br> tags for correct display in the browser #}
+    <br>
+    <a href="{{ path('recipes.index', { 'id': recipe.id, 'slug': recipe.slug }) }}" class="btn btn-primary">
+        Show Recipes List
+    </a>
 {% endblock %}
