@@ -3,22 +3,17 @@
 {% block title %}All recipes{% endblock %}
 
 {% block body %}
-<p>
-Bacon ipsum dolor amet t-bone tenderloin landjaeger ground round flank fatback spare 
-ribs. T-bone swine drumstick, ball tip kielbasa rump frankfurter boudin andouille shank sausage picanha filet mignon.
-Meatloaf jowl shoulder drumstick, bresaola landjaeger chislic capicola short ribs ham pastrami.
-</p>
+	<p>
+		Bacon ipsum dolor amet t-bone tenderloin landjaeger ground round flank fatback spare 
+		ribs. T-bone swine drumstick, ball tip kielbasa rump frankfurter boudin andouille shank sausage picanha filet mignon.
+		Meatloaf jowl shoulder drumstick, bresaola landjaeger chislic capicola short ribs ham pastrami.
+	</p>
 
-<ul>
-{{ dump(app)}}
-    <li>
-        <a href="{{ url('recipes.show', {id: 1, slug: 'first-recipe'}) }}">recipe 1</a>
-    </li>
-    <li>
-        <a href="{{ path('recipes.show', {id: 2, slug: 'second-recipe'}) }}">recipe 2</a>
-    </li>
-    <li>
-        <a href="{{ url('recipes.show', {id: 2, slug: 'other-recipe'}) }}">recipe 3</a>
-    </li>
-</ul>
+	<ul>
+		{% for recipe in recipes %}
+			<li>
+				<a href="{{ url('recipes.show', {id: recipe.id, 'slug': recipe.slug}) }}">{{recipe.title}}</a>
+			</li>
+		{% endfor %}
+	</ul>
 {% endblock %}
