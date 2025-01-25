@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recipe:
+	{{ "the recipe :" ~ slug }}
+{% endblock %}
+
+{% block body %}
+	<h1>ID:
+		{{ id }}</h1>
+	<h1>Test:
+		{{ slug | upper}}</h1>
+
+	<br>
+	<a href="{{ path('recipes.index', { 'id': id, 'slug': slug }) }}" class="btn btn-primary">
+		Show Recipe List
+	</a>
+{% endblock %}

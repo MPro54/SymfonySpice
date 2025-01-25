@@ -11,13 +11,13 @@
 <ul>
 {{ dump(app)}}
     <li>
-        <a href="{{ url('test.show', {id: 1, slug: 'first-page'}) }}">Page 1</a>
+        <a href="{{ url('test.show', {id: 1, slug: 'first-test'}) }}">Test 1</a>
     </li>
     <li>
-        <a href="{{ path('test.show', {id: 2, slug: 'second-page'}) }}">Page 2</a>
+        <a href="{{ path('test.show', {id: 2, slug: 'second-test'}) }}">Test 2</a>
     </li>
     <li>
-        <a href="{{ url('test.show', {id: 2, slug: 'other-page'}) }}">Page 3</a>
+        <a href="{{ url('test.show', {id: 2, slug: 'other-test'}) }}">Test 3</a>
     </li>
 </ul>
 {% endblock %}

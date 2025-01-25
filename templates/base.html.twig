@@ -30,6 +30,11 @@
                             Tests
                         </a>
                     </li>
+                                        <li>
+                        <a href="{{ path('recipes.index') }}" class="nav-link {{ app.request.attributes.get('_route') starts with 'recipes' ? 'active' : '' }}">
+                            Recipes
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
