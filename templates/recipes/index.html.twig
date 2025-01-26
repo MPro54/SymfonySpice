@@ -1,19 +1,45 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}All recipes{% endblock %}
+{% block title %}All recipes
+{% endblock %}
 
 {% block body %}
 	<p>
 		Bacon ipsum dolor amet t-bone tenderloin landjaeger ground round flank fatback spare 
-		ribs. T-bone swine drumstick, ball tip kielbasa rump frankfurter boudin andouille shank sausage picanha filet mignon.
-		Meatloaf jowl shoulder drumstick, bresaola landjaeger chislic capicola short ribs ham pastrami.
+						ribs. T-bone swine drumstick, ball tip kielbasa rump frankfurter boudin andouille shank sausage picanha filet mignon.
+						Meatloaf jowl shoulder drumstick, bresaola landjaeger chislic capicola short ribs ham pastrami.
 	</p>
 
-	<ul>
-		{% for recipe in recipes %}
-			<li>
-				<a href="{{ url('recipes.show', {id: recipe.id, 'slug': recipe.slug}) }}">{{recipe.title}}</a>
-			</li>
-		{% endfor %}
-	</ul>
+	<p>
+		<a class="btn btn-primary" href="{{ url('recipes.create') }}">Create</a>
+	</p>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for recipe in recipes %}
+				<tr>
+					<td>
+						<a href="{{ url('recipes.show', {id: recipe.id, 'slug': recipe.slug}) }}">{{recipe.title}}</a>
+					</td>
+					<td>
+						<div class="d-flex gap-1">
+							<a class="btn btn-primary" href="{{ url('recipes.edit', {id: recipe.id}) }}">Edit</a>
+							<form action="{{ path('recipes.remove', {id: recipe.id}) }}" method="post">
+								<input type="hidden" name="_method" value="DELETE">
+								<button type="submit" class="btn btn-danger">Remove</button>
+							</form>
+
+						</div>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
 {% endblock %}
