@@ -19,6 +19,7 @@ final class RecipesController extends AbstractController
              'recipes' => $recipes]
         );
     }
+    
     #[Route('/recipes/{slug}-{id}', name: 'recipes.show', requirements: ['id' => '\d+', 'slug' => '[a-z0-9-]+'])]
     public function show(Request $request, string $slug, int $id, RecipeRepository $recipeRepository): Response
     {
