@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recipe: {{ "the recipe :" ~ recipe.title }}{% endblock %}
+
+{% block body %}
+    <h1>Edit Recipe: {{ recipe.title }}</h1>
+
+    {{ form_start(form) }}
+        <div class="d-flex">
+            {{ form_row(form.title) }}
+            {{ form_row(form.duration) }}
+        </div>
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+{% endblock %}
